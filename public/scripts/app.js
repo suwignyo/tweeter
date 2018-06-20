@@ -67,7 +67,7 @@ function createTweetElement(data){
           </header>
 
           <div class="tweet">
-            <p class="content">${data.content.text}</p>
+            <p class="content">${escape(data.content.text)}</p>
           </div>
           <hr>
           <footer>
@@ -100,22 +100,11 @@ function loadTweets(){
 })
 }
 
-// function validateTweet(form) {
-//   let lengthMax = 140;
-//     $('#tweetButton').on('submit', function (event){
-//       var text = $("textarea").val();
-//       event.preventDefault();
-//       if (text === '') {
-//         return alert('Empty!');
-//       } else if (text.length > lengthMax) {
-//         return alert('Too many characters!');
-//       }
-//     })
-// }
-
-// Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $('#tweets-container').append($tweet);
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 $( document ).ready(function() {
   let lengthMax = 140;
