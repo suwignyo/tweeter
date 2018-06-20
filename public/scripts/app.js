@@ -85,65 +85,57 @@ function createTweetElement(data){
   return $(tweet);
 }
 
-
-//   let $tweet = $('<article>').addClass('tweet-feed');
-//   let $tweetHeader = $("<header>").appendTo($tweet);
-//   let $tweetFooter = $("<footer>").appendTo($tweet);
-
-//   $('<div>').addClass('profPic')
-//   .appendTo($tweetHeader);
-
-//   $('<img>').attr('src', data.small)
-//   .appendTo($tweetHeader);
-
-//   $('<p>').addClass('name').text(data.name)
-//   .appendTo($tweetHeader);
-
-//   $('<p>').addClass('username').text(data.handle)
-//   .appendTo($tweetHeader);
-
-//   $('<div>').addClass('tweet')
-//   .appendTo($tweet);
-
-//   $('<p>').addClass('content').text(data.content)
-//   .appendTo($tweet);
-
-//   $('<hr>').appendTo($tweet);
-
-//   $('<div>').addClass('footer').text(data.created_at)
-//   .appendTo($tweetFooter);
-
-//   $('<span>').addClass('buttons')
-//   .appendTo($tweetFooter);
-
-//   $('<i>').addClass('fas fa-flag')
-//   .appendTo($tweetFooter);
-
-//   $('<i>').addClass('fas fa-retweet')
-//   .appendTo($tweetFooter);
-
-//   $('<i>').addClass('fas fa-heart')
-//   .appendTo($tweetFooter);
-//   console.log($tweet);
-//   console.log($tweetHeader);
-//   console.log($tweetFooter);
-//   return $tweet;
-// }
-
 function renderTweets(tweets) {
   tweets.forEach(function (tweet) {
     $('#tweets-container').append(createTweetElement(tweet));
   });
 }
 
+function loadTweets(){
+    $.ajax({
+    url: '/tweets',
+    type: 'GET',
+  }).then(function (obj){
+      renderTweets(obj);
+})
+}
+
+// function validateTweet(form) {
+//   let lengthMax = 140;
+//     $('#tweetButton').on('submit', function (event){
+//       var text = $("textarea").val();
+//       event.preventDefault();
+//       if (text === '') {
+//         return alert('Empty!');
+//       } else if (text.length > lengthMax) {
+//         return alert('Too many characters!');
+//       }
+//     })
+// }
+
 // Test / driver code (temporary)
 // console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet);
 
 $( document ).ready(function() {
+  let lengthMax = 140;
   $('#tweetButton').on('submit', function (event) {
-    event.preventDefault();
-    console.log( $( this ).serialize())
-  })
-  renderTweets(tweetData);
+    // console.log( $( this ).serialize())
+      let text = $("textarea").val();
+      event.preventDefault();
+      if (text === '') {
+        return alert('Empty!');
+      } else if (text.length > lengthMax) {
+        return alert('Too many characters!');
+      } else {
+           $.ajax({
+            url: '/tweets',
+            type: 'POST',
+            data: $(this).serialize(),
+          }).then(function (obj){
+              loadTweets();
+        })
+      }
+    })
+  loadTweets();
 });
