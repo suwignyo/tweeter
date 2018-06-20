@@ -128,3 +128,11 @@ $( document ).ready(function() {
     })
   loadTweets();
 });
+
+$( document ).ready(function(){
+  $( "#composeButton" ).click(function() {
+    $( "section.new-tweet").slideToggle("slow", function() {
+      $('#tweetBox').focus();
+    });
+  });
+});

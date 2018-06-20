@@ -22,3 +22,16 @@
   line-height: 80px;
   float: left;
 }
+
+#composeButton {
+  float: right;
+  margin-right: 300px;
+  margin-top: 10px;
+  font-family: Roboto Condensed;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+#composeButton:hover {
+  background-color: grey;
+}
