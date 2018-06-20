@@ -37,15 +37,16 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/">
+        <form id="tweetButton" method="POST" action="/tweets">
           <textarea name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">
           <span class="counter" id="counter">140</span>
         </form>
       </section>
 
+      <!--where new tweet gets added -->
       <article class="container" id="tweets-container">
-        <section class="tweet-feed">
+       <!--  <section class="tweet-feed">
 
           <header class="header">
             <div class="profPic">
@@ -69,7 +70,7 @@
             </div>
           </footer>
 
-        </section>
+        </section> -->
       </article>
 
     </main>
