@@ -1,0 +1,52 @@
+.new-tweet {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 20px;
+  margin-bottom: 5px;
+}
+
+.new-tweet h2 {
+  line-height: 1.5em;
+  color: black;
+  text-align: left;
+  border-bottom: 0.5px solid black;
+  margin: 10px;
+}
+
+.new-tweet textarea{
+  margin: 10px;
+  width: -webkit-fill-available;
+  margin-top: 0;
+  border-radius: 5px;
+}
+
+.new-tweet input{
+  text-align: left;
+  margin-left: 10px;
+  border-radius: 3px;
+}
+
+.new-tweet span{
+  text-align: right;
+  margin-right: 10px;
+  float: right
+}
+
+.red {
+  color:red;
+}
+
+
+
+
+
+
+/* <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets/">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>*/
