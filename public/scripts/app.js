@@ -86,7 +86,7 @@ function createTweetElement(data){
 
 function renderTweets(tweets) {
   tweets.forEach(function (tweet) {
-    $('#tweets-container').append(createTweetElement(tweet));
+    $('#tweets-container').prepend(createTweetElement(tweet));
   });
 }
 
@@ -95,6 +95,7 @@ function loadTweets(){
     url: '/tweets',
     type: 'GET',
   }).then(function (obj){
+      $('#tweets-container').empty();
       renderTweets(obj);
 })
 }
@@ -120,6 +121,7 @@ $( document ).ready(function() {
             type: 'POST',
             data: $(this).serialize(),
           }).then(function (obj){
+              $("textarea").val('');
               loadTweets();
         })
       }

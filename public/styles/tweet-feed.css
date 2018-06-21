@@ -19,7 +19,6 @@
   justify-content: space-between;
 }
 .profPic img{
-  border: 0.5px solid black;
   border-radius: 5px;
   width: 40px;
   height: 40px;
@@ -28,12 +27,13 @@
 span.name {
   font-size: 18px;
   margin: 0px 0px 0px 20px;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-right: 100px;
 }
 
 .username {
   font-size: 12px;
+  padding-top: 12px;
 }
 
 .tweet-feed hr {
@@ -59,4 +59,12 @@ span.name {
 
 .content {
   font-size: initial;
+  overflow-wrap: break-word;
+  margin: 0px 0px 16px 0px;
+  height: 60px;
+  padding-top: 10px;
+}
+
+#tweets-container {
+  padding-top: 10px;
 }
