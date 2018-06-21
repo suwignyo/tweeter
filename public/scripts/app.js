@@ -61,8 +61,8 @@ function createTweetElement(data){
           <header class="header">
             <div class="profPic">
               <img src=${data.user.avatars.small}>
-              <p class="name">${data.user.name}</p>
-              <p class="username">${data.user.handle}</p>
+              <span class="name">${data.user.name}</span>
+              <span class="username">${data.user.handle}</span>
             </div>
           </header>
 
@@ -81,7 +81,6 @@ function createTweetElement(data){
           </footer>
         </section>
       </article>`;
-  // console.log(tweet);
   return $(tweet);
 }
 
@@ -109,7 +108,6 @@ function escape(str) {
 $( document ).ready(function() {
   let lengthMax = 140;
   $('#tweetButton').on('submit', function (event) {
-    // console.log( $( this ).serialize())
       let text = $("textarea").val();
       event.preventDefault();
       if (text === '') {
