@@ -1,10 +1,12 @@
 .new-tweet {
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 15px;
   padding: 10px;
   margin: 20px;
   margin-bottom: 5px;
+  background-color: #e6e6e6;
+  border-color: gainsboro;
 }
 
 .new-tweet h2 {
@@ -12,14 +14,15 @@
   color: black;
   text-align: left;
   border-bottom: 0.5px solid black;
-  margin: 10px;
+  margin: 0px 10px 10px 10px;
 }
 
 .new-tweet textarea{
-  margin: 10px;
+  margin: 5px 10px 5px 10px;
   width: -webkit-fill-available;
   margin-top: 0;
   border-radius: 5px;
+  height: 80px;
 }
 
 .new-tweet input{
@@ -38,15 +41,17 @@
   color:red;
 }
 
+#tweetPage {
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
 
+.noInputChar {
+  display: none;
+  color: red;
+}
 
-
-
-
-/* <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets/">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
-          <span class="counter">140</span>
-        </form>*/
+.tooManyChar {
+  display: none;
+  color: red;
+}

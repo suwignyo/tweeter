@@ -2,9 +2,9 @@
   position: fixed;
   height: 80px;
   width: 100%;
-  background-color: #008B8B;
+  background-color: cadetblue;
   font-color: #e8fdff;
-  padding-top: 0.5rem;
+  padding-top: 0.2rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
@@ -25,13 +25,17 @@
 
 #composeButton {
   float: right;
-  margin-right: 300px;
+  margin-right: 10%;
   margin-top: 10px;
   font-family: Roboto Condensed;
   border-radius: 5px;
-  padding: 15px;
+  height: 53px;
+  width: 120px;
+  font-size: 18px;
+  border: 1px solid;
+  border-color: gainsboro;
 }
 
 #composeButton:hover {
-  background-color: grey;
+  background-color: darkgrey;
 }
