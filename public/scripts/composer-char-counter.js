@@ -1,7 +1,7 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
-
+/*
+ *Tracks the character and turns it into red when it
+ *reaches a negative value
+ */
 $( document ).ready(function() {
   $("textarea").keyup(function(){
     var maxLength = 140;

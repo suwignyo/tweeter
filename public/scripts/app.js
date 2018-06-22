@@ -4,8 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+/*
+ * Creates a tweet element by taking data from database
+ */
 function createTweetElement(data){
-  var tweet=  `<article class="container" id="tweets-container">
+  let tweet =
+      `<article class="container" id="tweets-container">
         <section class="tweet-feed">
 
           <header class="header">
@@ -36,12 +41,16 @@ function createTweetElement(data){
   return $(tweet);
 }
 
+/* This function takes an array of tweet objects and adds it to tweet container
+ */
 function renderTweets(tweets) {
   tweets.forEach(function (tweet) {
     $('#tweets-container').prepend(createTweetElement(tweet));
   });
 }
 
+/* This function loads the tweets from database and ready to be rendered
+ */
 function loadTweets(){
     $.ajax({
     url: '/tweets',
@@ -49,15 +58,21 @@ function loadTweets(){
   }).then(function (obj){
       $('#tweets-container').empty();
       renderTweets(obj);
-})
-}
+    })
+  }
 
+/* Prevents user from inputting scripts and disrupting the page
+ */
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
+/* Checks the tweet box, if input doesn't meet requirement,
+ * appropriate error message will pop out. On normal tweet,
+ * it will post the tweet and refresh the page with the new tweet
+ */
 $( document ).ready(function() {
   let lengthMax = 140;
   $('#tweetButton').on('submit', function (event) {
@@ -86,6 +101,8 @@ $( document ).ready(function() {
   loadTweets();
 });
 
+/* Toggles the compose button to show/hide when clicked
+ */
 $( document ).ready(function(){
   $( "#composeButton" ).click(function() {
     $( "section.new-tweet").slideToggle("slow", function() {
